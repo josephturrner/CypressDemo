@@ -8,7 +8,8 @@ This repository contains **Cypress** tests for [DemoQA](https://demoqa.com/).
 - [Installation](#installation)
 - [Running Tests](#running-tests)
 - [Test Coverage](#test-coverage)
-  - [Landing Page Tests](#landing-page)
+  - [Landing Page](#landing-page)
+  - [Book Store](#book-store)
 - [License](#license)
 
 ---
@@ -48,12 +49,32 @@ Select the **E2E tests** and choose the browser in which you'd like to run the t
 These are the key elements and actions being tested on the landing page of [DemoQA](https://demoqa.com/):
 
 - **Header**:
-  - Verify that the `<header>` element exists.
-  - Ensure the `<header>` element contains a child `<img>` element with the correct `src` attribute.
-  - Check that the `<header>` element contains a child `<a>` element with the correct `href` attribute.
-    - Confirm that the `<a>` element is clickable.
-    - Verify that the `<a>` link functions correctly by ensuring the new page's URL matches the `href` attribute.
+  - Verify that the header exists
+    - Ensure the header contains a child image element with the correct `src` attribute.
+    - Check that the header contains a link element with the correct `href` attribute.
+      - Confirm that the link is clickable.
+      - Verify that the link functions correctly by ensuring the new page's URL matches the `href` attribute.
 
+- **Banner**:
+  - Verify the Selenium home banner exists.
+    - Check that the link child element exists
+      - Ensure `href` attribute is correct
+      - Ensure `target="_blank"` to open new window on click
+    - Verify link is clickable
+      - Validate url is followed on click by intercepting GET request
+
+- **Cards**:
+  - FOR EACH card element that SHOULD exist
+    - Verify card exists
+    - Verify `svg` element is present
+    - Verify card body exists
+      - Verify text matches the name of the card
+    - Verify card is clickable
+      - Verify redirect to correct url `baseurl/clickedCard`
+
+### Book Store:
+COMING SOON
+   
 ---
 
 ## License
