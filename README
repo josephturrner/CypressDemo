@@ -1,1 +1,16 @@
-Cypress Testing
+Cypress Testing using example site: https://demoqa.com/
+
+To run locally, clone the repo and install dependencies in the root of the project:
+`npm install`
+
+To begin running the project, use `npx cypress open`, and select the E2E tests. Select the browser you will be testing in.
+
+TEST COVERAGE
+
+Landing Page:
+- Header
+-- `<header>` element exists
+-- `<header>` element contains child `<img>` element with correct src attribute
+-- `<header>` element contains child `<a>` element with correct href attribute
+---- `<a>` element is clickable
+---- `<a>` link functions correctly by verifying new page url matched href
