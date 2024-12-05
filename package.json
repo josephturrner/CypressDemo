@@ -4,12 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gui": "npx cypress open",
+    "test": "npx cypress run",
+    "test:noreport": "npm cypress run --reporter none",
+    "clean": "rimraf ./cypress/reports && rimraf ./cypress/screenshots"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.16.0"
+    "cypress": "^13.16.0",
+    "mochawesome": "^7.1.3"
+  },
+  "dependencies": {
+    "rimraf": "^6.0.1"
   }
 }
