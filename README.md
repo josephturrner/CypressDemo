@@ -34,11 +34,28 @@ npm install
 
 After the dependencies are installed, open Cypress to start running the tests:
 
+Run tests in terminal (headless mode) with or without reporter
 ```
-npx cypress open
+npm run test
+```
+```
+npm run test:noreporter
 ```
 
-Select the **E2E tests** and choose the browser in which you'd like to run the tests.
+**OR**
+
+Open Cypress GUI for testing
+```
+npm run gui
+```
+
+**THEN**
+
+When the runs are done, you will see screenshots in `cypress/screenshots`, and reports in `cypress/reports`
+You can delete those files after a run using
+```
+npm run clean
+```
 
 ---
 
@@ -46,7 +63,7 @@ Select the **E2E tests** and choose the browser in which you'd like to run the t
 
 ### Landing Page:
 
-These are the key elements and actions being tested on the landing page of [DemoQA](https://demoqa.com/):
+These are the test cases for the [DemoQA Landing Page](https://demoqa.com/):
 
 - **Header**:
   - Header exists
@@ -79,7 +96,8 @@ These are the key elements and actions being tested on the landing page of [Demo
       - Redirect to correct URL `baseurl/clickedCard`
 
 ### Book Store:
-COMING SOON
+
+These are the test cases for the [DemoQA BookStore](https://demoqa.com/books):
    
 ---
 
