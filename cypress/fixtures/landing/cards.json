@@ -1,0 +1,10 @@
+{
+    "cards": [
+        {"name": "Elements", "link": "/elements"},
+        {"name": "Forms", "link": "/forms"},
+        {"name": "Alerts, Frame & Windows", "link": "/alertsWindows"},
+        {"name": "Widgets", "link": "/widgets"},
+        {"name": "Interactions", "link": "/interactions"},
+        {"name": "Book Store Application", "link": "/books"}
+    ]
+}
