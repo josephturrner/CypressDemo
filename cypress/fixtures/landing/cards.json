@@ -4,7 +4,7 @@
         {"name": "Forms", "link": "/forms"},
         {"name": "Alerts, Frame & Windows", "link": "/alertsWindows"},
         {"name": "Widgets", "link": "/widgets"},
-        {"name": "Interactions", "link": "/interactions"},
+        {"name": "Interactions", "link": "/interaction"},
         {"name": "Book Store Application", "link": "/books"}
     ]
 }

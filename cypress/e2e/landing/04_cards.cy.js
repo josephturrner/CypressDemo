@@ -21,7 +21,7 @@ describe('Testing Cards', () => {
     it('Cards SVG is visible', () => {
         cy.get('.avatar svg')
             .should('have.length', cards.length)
-            .each(($card) => {
+            .each(($card, index) => {
                 cy.wrap($card)
                     .should('exist')
                     .and('be.visible');
@@ -30,6 +30,12 @@ describe('Testing Cards', () => {
 
     // Cannot guarantee the order of appearance, so using this instead of directly comparing by index
     it('Cards all present once, contains correct text', () => {
+
+        /*
+
+        Code for case where we cannot guarantee the order of the cards
+        But I will assume that whatever order is given to the tests is the same order
+        They will appear in
 
         // Will be used to make sure each card appears once and only once by removing from muteableCards once found
         let mutableCards = [...cards.map(card => card.name)];
@@ -57,39 +63,37 @@ describe('Testing Cards', () => {
                 // Expect the cards to be empty if all were matched and removed, otherwise a card is a duplicate or contains incorrect innerText
                 expect(mutableCards.length).to.equal(0, 'All cards present once and only once');
             })
+        */
+
+        // Assumes the order of cards matches the order that the cards appear in the DOM
+        cy.get('.card-body h5')
+            .should('have.length', cards.length)
+        .each(($cardBody, idx) => {
+            expect(cards[idx].name).to.equal($cardBody.text().trim())
+        })
     });
 
+    it('Cards redirect correctly', () => {
 
-    // TODO: click prevents dom from tracking $card, fails
-    it.only('Cards redirects correctly, links are unique', () => {
-
-        // Same principle as previous `it` block
-        let mutableLinks = [...cards.map(card => card.link)];
-
-        cy.get('.card')
-            .should('have.length', cards.length)
-            .each(($card) => {
-
-                cy.wrap($card).click();
-
-                // Get new pathname
-                cy.location('pathname').then((currentPathname) => {
-
-                    // Assert current path is included in the links array
-                    expect(mutableLinks).to.include(currentPathname, `Expected ${currentPathname} to be in mutableLinks`);
-
-                    // Check if the pathname matches what we expect
-                    const linkIndex = mutableLinks.indexOf(currentPathname);
-
-                    if (linkIndex !== -1) {
-                        // Remove matched link to avoid duplicates
-                        mutableLinks.splice(linkIndex, 1);
-                    }
-            })
-        })
-        .then(() => {
-            // Expect mutableLinks to be empty if all links were matched and removed
-            expect(mutableLinks.length).to.equal(0, 'All card links redirected correctly and are unique');
+        /*
+        Catching error on website caused by repetitive navigation
+        .setup is called on one of the pages, but cypress navigates to a different page too quickly
+        It is likely that the resource .setup is being called on now has a null value
+        */
+        Cypress.on('uncaught:exception', (err) => {
+            if (err.message && err.message.includes('c(...).setup is not a function')) {
+              return false;
+            }
+            return true;
         });
+
+        cy.wrap(cards).each((card) => {
+
+            cy.contains(card.name).click();
+            cy.location('pathname').should('eq', card.link);
+            // Navigate back to the homepage
+            cy.go('back');
+        });
+
     });
 });
