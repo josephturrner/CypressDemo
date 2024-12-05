@@ -1,0 +1,20 @@
+{
+    "header": {
+        "href": "https://demoqa.com",
+        "img": "/images/Toolsqa.jpg"
+    },
+    "body": {
+        "banner": {
+            "link": "https://www.toolsqa.com/selenium-training/",
+            "img": "/images/WB.svg"
+        },
+        "cards": [
+            {"name": "Elements", "link": "/elements"},
+            {"name": "Forms", "link": "/forms"},
+            {"name": "Alerts, Frame & Windows", "link": "/alertsWindows"},
+            {"name": "Widgets", "link": "/widgets"},
+            {"name": "Interactions", "link": "/interactions"},
+            {"name": "Book Store Application", "link": "/books"}
+        ]
+    }
+}
