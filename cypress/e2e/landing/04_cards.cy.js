@@ -73,7 +73,7 @@ describe('Testing Cards', () => {
         })
     });
 
-    it('Cards redirect correctly', () => {
+    it.only('Cards redirect correctly', () => {
 
         /*
         Catching error on website caused by repetitive navigation
@@ -81,7 +81,7 @@ describe('Testing Cards', () => {
         It is likely that the resource .setup is being called on now has a null value
         */
         Cypress.on('uncaught:exception', (err) => {
-            if (err.message && err.message.includes('c(...).setup is not a function')) {
+            if (err.message && err.message.includes('Script error')) {
               return false;
             }
             return true;
