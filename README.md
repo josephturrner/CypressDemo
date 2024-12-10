@@ -96,7 +96,8 @@ These are the test cases for the [DemoQA Landing Page](https://demoqa.com/):
       - Redirect to correct URL `baseurl/clickedCard`
 
 ### Book Store:
-Simply for documentation purposes. I am practicing ensuring all test cases are checked
+Simply for documentation purposes. I am practicing ensuring all test cases are checked.
+
 These are the test cases for the [DemoQA BookStore](https://demoqa.com/books):
 
 **Pre-Login**:
